@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   # resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy] # crea las rutas para todos los articulos
   resources :articles # crea TODAS las rutas de arriba
+
+  get "signup", to: "users#new" # creates 'signup' page to users(controller) and new(action)
+  # post "users", to: "users#create" # the 'new form submission' is handled by the 'create action'
+  resources :users, except: [:new] # crea las rutas para todos los usuarios excepto el new (a la que llamamos 'signup')
+
 end
