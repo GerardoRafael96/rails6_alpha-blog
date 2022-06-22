@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.new(article_params) 
+        @article.user = User.first
         if @article.save
             flash[:notice] = "Article was created successfully." # flash es un hash que muestra un mensaje de error[:alert] o de exito[:notice]
             redirect_to article_path(@article) # redirecciona a la ruta del articulo utilizando el id de @article
