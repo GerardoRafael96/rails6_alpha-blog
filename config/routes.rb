@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   # post "users", to: "users#create" # the 'new form submission' is handled by the 'create action'
   resources :users, except: [:new] # crea las rutas para todos los usuarios excepto el new (a la que llamamos 'signup')
 
+  get "login", to: "sessions#new" # creates 'login' page to sessions(controller) and new(action)
+  post "login", to: "sessions#create" # the 'new form submission' is handled by the 'create action'
+  delete "logout", to: "sessions#destroy" # creates 'logout' page to sessions(controller) and destroy(action)
+
 end
